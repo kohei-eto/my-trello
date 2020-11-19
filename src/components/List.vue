@@ -1,0 +1,32 @@
+<template>
+  <div class="list">
+    <div class="listheader">
+      <p class="list-title">{{ title }}</p>
+      <div class="deletelist" @click="removeList"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  //propsには親コンポーネントから受け取るデータを定義できる
+  //受け取ったデータはdataプロパティと同様にアクセスできる
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    listIndex: {
+      type: Number,
+      required: true
+    }
+  },
+  methods: {
+    removeList: function() {
+      if(confirm(本当にリストを削除するの?)){
+        this.$store.dispatch('removelist', { listIndex: this.listIndex })
+      }
+    },
+  }
+}
+</script>
