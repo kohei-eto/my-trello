@@ -2,7 +2,7 @@
   <div class="list">
     <div class="listheader">
       <p class="list-title">{{ title }}</p>
-      <div class="deletelist" @click="removeList"></div>
+      <div class="deletelist" @click="removeList">×</div>
     </div>
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     removeList: function() {
-      if(confirm('本当にリストを削除するの?')){
+      if(confirm('本当にリストを削除しますか?')){
         this.$store.dispatch('removelist', { listIndex: this.listIndex })
       }
     },
