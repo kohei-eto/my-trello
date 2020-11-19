@@ -46,14 +46,14 @@ main {
 .text-input {
   padding: 20px 15px;
   width: calc(100% - 30px);
-  background-color: rgb(13, 35, 202);
+  background-color: rgb(34, 49, 212);
   border-radius: 8px;
   cursor: pointer;
   border: none;
   font-family: "Noto Sans Japanese", "Noto Sans", 'system-ui', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  color: #242424;
+  color: #353333;
   cursor: pointer;
   overflow: overlay;
 }
@@ -81,7 +81,7 @@ main {
 }
 
 .active .text-input {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
 }
 .addable .add-button {
   background-color: #00d78f;

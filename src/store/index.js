@@ -5,17 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    lists: [],
+    lists: []
   },
   mutations: {
-    addlist(state, payload) {
+    addlist (state, payload) {
       state.lists.push({ title: payload.title, cards: [] })
-    },
+    }
   },
   actions: {
-    addlist(context, payload) {
+    addlist (context, payload) {
       context.commit('addlist', payload)
-    },
+    }
   },
   getters: {
   }
