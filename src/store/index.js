@@ -36,5 +36,10 @@ export default new Vuex.Store({
     },
   },
   getters: {
+    totalCardCount(state) {
+      let count = 0
+      state.lists.map(content => count += content.cards.length)
+      return count
+    },
   }
 })
