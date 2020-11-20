@@ -7,7 +7,10 @@
            @focusin="startEditing"
            @focusout="finishEditing"
     />
-    <button type="submit" class=add-button>
+    <button type="submit" 
+            class="add-button"
+            v-if="isEditing || bodyExists"
+    >
       Add
     </button>
   </form>
@@ -33,8 +36,14 @@ export default {
       if (this.isEditing) {
         classList.push('active')
       }
+      if (this.bodyExists) {
+        classList.push('addable')
+      }
       return classList
     },
+    bodyExists() {
+      return this.body.length > 0
+    }
   },
   methods: {
     addCardToList: function() {
@@ -42,10 +51,10 @@ export default {
       this.body = ''
     },
     startEditing() {
-      isEditing = true
+      return this.isEditing = true
     },
     finishEditing() {
-      isEditing = false
+      return this.isEditing = false
     },
   }
 }
