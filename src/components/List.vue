@@ -5,17 +5,20 @@
       <p class="list-counter">total: {{ totalCardInList }}</p>
       <div class="deletelist" @click="removeList">×</div>
     </div>
-    <card v-for="(item, index) in cards"
+    <draggable>
+      <card v-for="(item, index) in cards"
           :body="item.body"
           :key="item.id"
           :cardIndex="index"
           :listIndex="listIndex" 
-     />
-    <card-add :listIndex="listIndex" />
+       />
+      <card-add :listIndex="listIndex" />
+    </draggable>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import CardAdd from './CardAdd'
 import Card from './Card'
 
@@ -23,6 +26,7 @@ export default {
   components: {
     CardAdd,
     Card,
+    draggable,
   },
   //propsには親コンポーネントから受け取るデータを定義できる
   //受け取ったデータはdataプロパティと同様にアクセスできる

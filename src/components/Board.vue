@@ -3,19 +3,18 @@
     <header>
       my Trello
     </header>
-    <main>
-      <p class="info-line">All: {{ totalCardCount }} tasks</p>
-      <div class="list-index">
-        <list v-for="(item, index) in lists"
+      <main>
+        <p class="info-line">All: {{ totalCardCount }} tasks</p>
+        <div class="list-index">
+          <list v-for="(item, index) in lists"
               :key="item.id"
               :title="item.title"
               :cards="item.cards"
               :listIndex="index"
-        />
-        <list-add />
-      </div>
-      
-    </main>
+          />
+          <list-add />
+        </div>
+      </main>
   </div>
 </template>
 
@@ -27,7 +26,7 @@ import { mapState } from 'vuex'
 export default {
   components: {
     ListAdd,
-    List
+    List,
   },
   computed: {
     ...mapState([
