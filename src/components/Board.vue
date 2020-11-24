@@ -5,12 +5,15 @@
     </header>
       <main>
         <p class="info-line">All: {{ totalCardCount }} tasks</p>
-        <draggable class="list-index">
+        <draggable class="list-index"
+                   @end="movingList"
+                   :list="lists">
           <list v-for="(item, index) in lists"
               :key="item.id"
               :title="item.title"
               :cards="item.cards"
               :listIndex="index"
+              @change="movingCard"
           />
           <list-add />
         </draggable>
@@ -32,10 +35,18 @@ export default {
   },
   computed: {
     ...mapState([
-      'lists'
+      'lists',
     ]),
     totalCardCount() {
       return this.$store.getters.totalCardCount
+    },
+  },
+  methods: {
+    movingCard() {
+      this.$store.dispatch('updateList', { lists: this.lists })
+    },
+    movingList() {
+      this.$store.dispatch('updateList', { lists: this.lists })
     },
   },
 }
